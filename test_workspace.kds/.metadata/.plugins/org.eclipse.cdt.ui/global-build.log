@@ -1,0 +1,899 @@
+15:20:53 **** Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building file: ../Project_Settings/Startup_Code/startup_MK60D10.S'
+'Invoking: Cross ARM GNU Assembler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"Project_Settings/Startup_Code/startup_MK60D10.d" -MT"Project_Settings/Startup_Code/startup_MK60D10.o" -c -o "Project_Settings/Startup_Code/startup_MK60D10.o" "../Project_Settings/Startup_Code/startup_MK60D10.S"
+'Finished building: ../Project_Settings/Startup_Code/startup_MK60D10.S'
+' '
+'Building file: ../Project_Settings/Startup_Code/system_MK60D10.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Project_Settings/Startup_Code/system_MK60D10.d" -MT"Project_Settings/Startup_Code/system_MK60D10.o" -c -o "Project_Settings/Startup_Code/system_MK60D10.o" "../Project_Settings/Startup_Code/system_MK60D10.c"
+'Finished building: ../Project_Settings/Startup_Code/system_MK60D10.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+15:21:12 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+15:22:30 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+16:38:05 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+16:43:10 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c:4:17: fatal error: mcg.h: No such file or directory
+ #include "mcg.h"
+                 ^
+compilation terminated.
+make: *** [Sources/main.o] Error 1
+17:35:22 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+17:43:10 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+17:57:49 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:03:27 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c:37:1: error: initializer element is not constant
+ const int col_mask = (1 << A0) | (1 << A1) | (1 << A2) | (1 << A3);
+ ^
+../Sources/main.c:38:1: error: initializer element is not constant
+ const int row_mask = (1 << R0) | (1 << R1) | (1 << R2) | (1 << R3) | (1 << R4) | (1 << R5) | (1 << R6) | (1 << R7);
+ ^
+../Sources/main.c:39:1: error: initializer element is not constant
+ const int en_mask = 1 << EN; // 0001 0000 0x000000
+ ^
+../Sources/main.c: In function 'init_display':
+../Sources/main.c:92:11: error: subscripted value is neither array nor pointer nor vector
+  PTE->PDOR[R0] = 1;
+           ^
+make: *** [Sources/main.o] Error 1
+19:04:10 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c:37:1: error: initializer element is not constant
+ int col_mask = (1 << A0) | (1 << A1) | (1 << A2) | (1 << A3);
+ ^
+../Sources/main.c:38:1: error: initializer element is not constant
+ int row_mask = (1 << R0) | (1 << R1) | (1 << R2) | (1 << R3) | (1 << R4) | (1 << R5) | (1 << R6) | (1 << R7);
+ ^
+../Sources/main.c:39:1: error: initializer element is not constant
+ int en_mask = 1 << EN; // 0001 0000 0x000000
+ ^
+../Sources/main.c: In function 'init_display':
+../Sources/main.c:92:11: error: subscripted value is neither array nor pointer nor vector
+  PTE->PDOR[R0] = 1;
+           ^
+make: *** [Sources/main.o] Error 1
+19:04:28 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c: In function 'init_display':
+../Sources/main.c:93:11: error: subscripted value is neither array nor pointer nor vector
+  PTE->PDOR[R0] = 1;
+           ^
+make: *** [Sources/main.o] Error 1
+19:05:17 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:05:23 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+19:06:08 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+19:06:58 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+19:08:29 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+19:13:42 **** Clean-only build of configuration Debug for project demo ****
+make clean 
+rm -rf  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o  ./Sources/main.d  ./Project_Settings/Startup_Code/system_MK60D10.d  ./Project_Settings/Startup_Code/startup_MK60D10.d  demo.elf
+' '
+19:13:54 **** Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building file: ../Project_Settings/Startup_Code/startup_MK60D10.S'
+'Invoking: Cross ARM GNU Assembler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"Project_Settings/Startup_Code/startup_MK60D10.d" -MT"Project_Settings/Startup_Code/startup_MK60D10.o" -c -o "Project_Settings/Startup_Code/startup_MK60D10.o" "../Project_Settings/Startup_Code/startup_MK60D10.S"
+'Finished building: ../Project_Settings/Startup_Code/startup_MK60D10.S'
+' '
+'Building file: ../Project_Settings/Startup_Code/system_MK60D10.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Project_Settings/Startup_Code/system_MK60D10.d" -MT"Project_Settings/Startup_Code/system_MK60D10.o" -c -o "Project_Settings/Startup_Code/system_MK60D10.o" "../Project_Settings/Startup_Code/system_MK60D10.c"
+'Finished building: ../Project_Settings/Startup_Code/system_MK60D10.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:18:28 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:26:12 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:27:07 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:33:03 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c:26:1: error: initializer element is not constant
+ const unsigned int COL_ARR[4] = { A0, A1, A2, A3 };
+ ^
+../Sources/main.c:26:1: error: (near initialization for 'COL_ARR[0]')
+../Sources/main.c:26:1: error: initializer element is not constant
+../Sources/main.c:26:1: error: (near initialization for 'COL_ARR[1]')
+../Sources/main.c:26:1: error: initializer element is not constant
+../Sources/main.c:26:1: error: (near initialization for 'COL_ARR[2]')
+../Sources/main.c:26:1: error: initializer element is not constant
+../Sources/main.c:26:1: error: (near initialization for 'COL_ARR[3]')
+make: *** [Sources/main.o] Error 1
+19:34:07 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:34:12 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+19:36:37 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:39:07 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:39:51 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:40:39 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:41:27 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:44:35 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+In file included from ../Sources/main.c:2:0:
+../Sources/main.c: In function 'play_display_col_sequence':
+../Sources/main.c:90:33: error: 'col_mask' undeclared (first use in this function)
+    PTA->PDOR &= ~(GPIO_PDOR_PDO(col_mask));
+                                 ^
+../Includes/MK60D10.h:9968:75: note: in definition of macro 'GPIO_PDOR_PDO'
+ #define GPIO_PDOR_PDO(x)                         (((uint32_t)(((uint32_t)(x))<<GPIO_PDOR_PDO_SHIFT))&GPIO_PDOR_PDO_MASK)
+                                                                           ^
+../Sources/main.c:90:33: note: each undeclared identifier is reported only once for each function it appears in
+    PTA->PDOR &= ~(GPIO_PDOR_PDO(col_mask));
+                                 ^
+../Includes/MK60D10.h:9968:75: note: in definition of macro 'GPIO_PDOR_PDO'
+ #define GPIO_PDOR_PDO(x)                         (((uint32_t)(((uint32_t)(x))<<GPIO_PDOR_PDO_SHIFT))&GPIO_PDOR_PDO_MASK)
+                                                                           ^
+make: *** [Sources/main.o] Error 1
+19:45:15 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:45:18 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+19:46:17 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:47:51 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:48:14 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:49:25 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:54:54 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c: In function 'init_display':
+../Sources/main.c:176:7: error: 'PORT_Type' has no member named 'PDOR'
+  PORTE->PDOR |= GPIO_PDOR_PDO( 1 << R0 );
+       ^
+make: *** [Sources/main.o] Error 1
+19:56:20 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+19:56:24 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+23:42:08 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+23:54:28 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+23:55:50 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+23:59:26 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:10:52 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:11:18 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+00:15:04 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:18:11 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:22:11 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:23:00 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:28:03 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:29:03 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:38:23 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:39:01 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:42:49 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c: In function 'set_col_on':
+../Sources/main.c:241:23: error: 'col_num' undeclared (first use in this function)
+  unsigned int bit3 = (col_num >> 3) & 1;
+                       ^
+../Sources/main.c:241:23: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Sources/main.o] Error 1
+00:43:14 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:43:18 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+00:44:45 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:47:33 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:48:08 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:48:54 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:49:33 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:50:19 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:51:28 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:51:54 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+00:55:17 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+01:01:41 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c: In function 'set_col_on':
+../Sources/main.c:243:6: error: 'bit_0' undeclared (first use in this function)
+  if (bit_0 != 0) {
+      ^
+../Sources/main.c:243:6: note: each undeclared identifier is reported only once for each function it appears in
+../Sources/main.c:245:2: error: expected ';' before '}' token
+  } else {
+  ^
+../Sources/main.c:247:2: error: expected ';' before '}' token
+  }
+  ^
+../Sources/main.c:249:6: error: 'bit_1' undeclared (first use in this function)
+  if (bit_1 != 0) {
+      ^
+../Sources/main.c:251:2: error: expected ';' before '}' token
+  } else {
+  ^
+../Sources/main.c:253:2: error: expected ';' before '}' token
+  }
+  ^
+../Sources/main.c:255:6: error: 'bit_2' undeclared (first use in this function)
+  if (bit_2 != 0) {
+      ^
+../Sources/main.c:257:2: error: expected ';' before '}' token
+  } else {
+  ^
+../Sources/main.c:259:2: error: expected ';' before '}' token
+  }
+  ^
+../Sources/main.c:261:6: error: 'bit_3' undeclared (first use in this function)
+  if (bit_3 != 0) {
+      ^
+../Sources/main.c:263:2: error: expected ';' before '}' token
+  } else {
+  ^
+../Sources/main.c:265:2: error: expected ';' before '}' token
+  }
+  ^
+make: *** [Sources/main.o] Error 1
+01:02:05 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c: In function 'set_col_on':
+../Sources/main.c:243:6: error: 'bit_0' undeclared (first use in this function)
+  if (bit_0 != 0) {
+      ^
+../Sources/main.c:243:6: note: each undeclared identifier is reported only once for each function it appears in
+../Sources/main.c:249:6: error: 'bit_1' undeclared (first use in this function)
+  if (bit_1 != 0) {
+      ^
+../Sources/main.c:255:6: error: 'bit_2' undeclared (first use in this function)
+  if (bit_2 != 0) {
+      ^
+../Sources/main.c:261:6: error: 'bit_3' undeclared (first use in this function)
+  if (bit_3 != 0) {
+      ^
+make: *** [Sources/main.o] Error 1
+01:02:32 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+01:02:37 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+01:08:18 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+01:13:51 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+01:15:22 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+01:16:23 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+01:19:40 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+01:25:54 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c:68:3: error: expected '}' before numeric constant
+   0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,0
+   ^
+make: *** [Sources/main.o] Error 1
+01:26:23 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+01:26:26 **** Incremental Build of configuration Debug for project demo ****
+make all 
+make: Nothing to be done for `all'.
+01:31:07 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
+01:32:30 **** Incremental Build of configuration Debug for project demo ****
+make all 
+'Building file: ../Sources/main.c'
+'Invoking: Cross ARM C Compiler'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+'Finished building: ../Sources/main.c'
+' '
+'Building target: demo.elf'
+'Invoking: Cross ARM C++ Linker'
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf"  ./Sources/main.o  ./Project_Settings/Startup_Code/startup_MK60D10.o ./Project_Settings/Startup_Code/system_MK60D10.o   
+'Finished building target: demo.elf'
+' '
