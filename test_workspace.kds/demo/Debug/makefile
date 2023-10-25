@@ -51,7 +51,7 @@ all: demo.elf secondary-outputs
 demo.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "MK60DN512xxx10_flash.ld" -Xlinker --gc-sections -L"D:/FIT/IMP/proj/test_workspace.kds/demo/Project_Settings/Linker_Files" -Wl,-Map,"demo.map" -specs=nano.specs -specs=nosys.specs -o "demo.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -18,18 +18,16 @@ void delay(int t1, int t2)
 	}
 }
 
-// PTA
+// PORTA
 #define A0 8
 #define A1 10
 #define A2 6
 #define A3 11
 
-//const unsigned int COL_ARR[4] = { A0, A1, A2, A3 };
-
-// PTE
+// PORTE
 #define EN 28
 
-// PTA
+// PORTA
 #define R0 26
 #define R1 24
 #define R2 9
@@ -39,58 +37,94 @@ void delay(int t1, int t2)
 #define R6 27
 #define R7 29
 
+// PORTE
+#define SW2 10
+#define SW3 12
+#define SW4 27
+#define SW5 26
+#define SW6 11
+
+// PORTB
+#define D9  5
+#define D10 4
+#define D11 3
+#define D12 2
+
 const unsigned int ROW_ARR[8] = { R0, R1, R2, R3, R4, R5, R6, R7 };
 
 #define COL_MASK 0x00000d40
 #define ROW_MASK 0x3f000280
 #define EN_MASK  0x10000000
 
+#define LED_MASK 0x0000003C
+
 // 16 * 8 = 128
+unsigned int field[128] = {
+		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
+		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
+		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
+		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
+
+		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
+		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
+		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
+		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0
+};
+
 //unsigned int field[128] = {
-//		0,0,0,0, 0,0,0,0,  0,0,1,0, 0,1,0,0,
-//		0,1,0,0, 1,0,1,0,  1,0,0,1, 1,0,0,0,
-//		0,1,0,0, 1,0,1,0,  1,0,1,0, 0,0,1,0,
-//		0,0,1,1, 0,0,0,1,  1,0,1,0, 0,1,1,0,
+//		0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+//		0,0,0,0, 1,1,1,0, 1,1,1,0, 0,0,0,0,
+//		0,0,0,0, 1,0,1,0, 1,0,1,0, 0,0,0,0,
+//		0,0,0,0, 1,0,1,0, 1,1,1,0, 0,0,0,0,
 //
-//		0,0,1,1, 0,0,0,0,  1,0,1,0, 1,0,1,0,
-//		0,1,0,0, 1,0,0,1,  0,0,1,1, 0,0,1,0,
-//		0,1,0,0, 1,0,1,0,  0,0,1,0, 0,0,1,0,
-//		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0
+//		0,0,0,0, 0,0,0,0, 0,0,0,0, 1,0,0,0,
+//		0,0,1,0, 0,1,0,1, 0,1,0,1, 0,1,0,0,
+//		0,0,0,1, 1,0,0,0, 1,0,0,1, 1,1,0,0,
+//		0,0,1,0, 0,1,0,1, 0,0,0,1, 0,1,0,0,
 //};
 
-unsigned int field[128] = {
-		0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,
-		0,0,0, 0,1,1,1, 0,1,1,1, 0,0,0,0, 0,
-		0,0,0, 0,1,0,1, 0,1,0,1, 0,0,0,0, 0,
-		0,0,0, 0,1,0,1, 0,1,1,1, 0,0,0,0, 0,
-		
-		0,0,0,0, 0,0,0,0, 0,0,0,0, 1,0,0,0,
-		0,0,1,0, 0,1,0,1, 0,1,0,1, 0,1,0,0,
-		0,0,0,1, 1,0,0,0, 1,0,0,1, 1,1,0,0,
-		0,0,1,0, 0,1,0,1, 0,0,0,1, 0,1,0,0,
+enum direction {
+	STOP = -1, UP = 0, LEFT, DOWN, RIGHT
+};
+
+typedef struct {
+	unsigned int x;
+	unsigned int y;
+} pos_t;
+
+#define SNAKE_LEN 5
+
+int snake_dir = STOP;
+
+pos_t snake_body[SNAKE_LEN] = {
+		{ 3, 9  }, // Head
+		{ 3, 10 },
+		{ 3, 11 },
+		{ 3, 12 },
+		{ 3, 13 }, // Tail
 };
 
 
 void init_led(void)
 {
 	/* Set corresponding PTB pins (connected to LED's) for GPIO functionality */
-	PORTB->PCR[5] = ( PORT_PCR_MUX(0x01) ); // D9
-	PORTB->PCR[4] = ( PORT_PCR_MUX(0x01) ); // D10
-	PORTB->PCR[3] = ( PORT_PCR_MUX(0x01) ); // D11
-	PORTB->PCR[2] = ( PORT_PCR_MUX(0x01) ); // D12
+	PORTB->PCR[D9]  = ( PORT_PCR_MUX(0x01) ); // D9
+	PORTB->PCR[D10] = ( PORT_PCR_MUX(0x01) ); // D10
+	PORTB->PCR[D11] = ( PORT_PCR_MUX(0x01) ); // D11
+	PORTB->PCR[D12] = ( PORT_PCR_MUX(0x01) ); // D12
 
 	/* Change corresponding PTB port pins as outputs */
-	PTB->PDDR  = GPIO_PDDR_PDD( 0x3C );
-	PTB->PDOR |= GPIO_PDOR_PDO( 0x3C );
+	PTB->PDDR  = GPIO_PDDR_PDD( LED_MASK ); //0x3C
+	PTB->PDOR |= GPIO_PDOR_PDO( LED_MASK );
 }
 
 void init_buttons(void)
 {
-	PORTE->PCR[10] = PORT_PCR_MUX(0x01); // SW2
-	PORTE->PCR[12] = PORT_PCR_MUX(0x01); // SW3
-	PORTE->PCR[27] = PORT_PCR_MUX(0x01); // SW4
-	PORTE->PCR[26] = PORT_PCR_MUX(0x01); // SW5
-	PORTE->PCR[11] = PORT_PCR_MUX(0x01); // SW6
+	PORTE->PCR[SW2] = PORT_PCR_MUX(0x01); // SW2
+	PORTE->PCR[SW3] = PORT_PCR_MUX(0x01); // SW3
+	PORTE->PCR[SW4] = PORT_PCR_MUX(0x01); // SW4
+	PORTE->PCR[SW5] = PORT_PCR_MUX(0x01); // SW5
+	PORTE->PCR[SW6] = PORT_PCR_MUX(0x01); // SW6
 }
 
 void play_display_row_sequence(void)
@@ -131,41 +165,45 @@ void play_display_col_sequence(void)
 	//}
 }
 
-void handle_led_buttons(void)
+void buttons_handler(void)
 {
 	/* Evaluation of SW2 state */
-	if ( (PTE->PDIR & (1 << 10)) != 0 ) {
-		PTB->PDOR |= (1 << 5);
+	if ( (PTE->PDIR & (1 << SW2)) != 0 ) {
+		PTB->PDOR |= (1 << D9);
 	} else {
-		PTB->PDOR &= ~(1 << 5);
+		snake_dir = UP;
+		PTB->PDOR &= ~(1 << D9);
 	}
 
 	/* Evaluation of SW3 state */
-	if ( (PTE->PDIR & (1 << 12)) != 0 ) {
-		PTB->PDOR |= (1 << 4);
+	if ( (PTE->PDIR & (1 << SW3)) != 0 ) {
+		PTB->PDOR |= (1 << D10);
 	} else {
-		PTB->PDOR &= ~(1 << 4);
+		snake_dir = RIGHT;
+		PTB->PDOR &= ~(1 << D10);
 	}
 
 	/* Evaluation of SW4 state */
-	if ( (PTE->PDIR & (1 << 27)) != 0 ) {
-		PTB->PDOR |= (1 << 3);
+	if ( (PTE->PDIR & (1 << SW4)) != 0 ) {
+		PTB->PDOR |= (1 << D11);
 	} else {
-		PTB->PDOR &= ~(1 << 3);
+		snake_dir = DOWN;
+		PTB->PDOR &= ~(1 << D11);
 	}
 
 	/* Evaluation of SW5 state */
-	if ( (PTE->PDIR & (1 << 26)) != 0 ) {
-		PTB->PDOR |= (1 << 2);
+	if ( (PTE->PDIR & (1 << SW5)) != 0 ) {
+		PTB->PDOR |= (1 << D12);
 	} else {
-		PTB->PDOR &= ~(1 << 2);
+		snake_dir = LEFT;
+		PTB->PDOR &= ~(1 << D12);
 	}
 
 	/* Evaluation of SW6 state */
-	if ( (PTE->PDIR & (1 << 11)) != 0 ) {
-		PTB->PDOR |= GPIO_PDOR_PDO( 0x3C );
+	if ( (PTE->PDIR & (1 << SW6)) != 0 ) {
+		PTB->PDOR |= GPIO_PDOR_PDO( LED_MASK );
 	} else {
-		PTB->PDOR &= ~GPIO_PDOR_PDO( 0x3C );
+		PTB->PDOR &= ~GPIO_PDOR_PDO( LED_MASK );
 	}
 }
 
@@ -244,55 +282,18 @@ void play_led_sequence(void)
 
 void set_col_on(unsigned int col_id)
 {
-	// Set cols to 0000
-	//PTA->PDOR &= ~( GPIO_PDOR_PDO( COL_MASK ) );
+	// Leave ROWs untouched
+	unsigned int pdor = PTA->PDOR & GPIO_PDOR_PDO( ROW_MASK );
+	// Add all column bits
+	pdor |= ((col_id >> 0) & 1u) << A0
+		  | ((col_id >> 1) & 1u) << A1
+		  | ((col_id >> 2) & 1u) << A2
+		  | ((col_id >> 3) & 1u) << A3;
 
-	unsigned int bit0 = (col_id >> 0) & 1u;
-	unsigned int bit1 = (col_id >> 1) & 1u;
-	unsigned int bit2 = (col_id >> 2) & 1u;
-	unsigned int bit3 = (col_id >> 3) & 1u;
-
-	if (bit0 == 1) {
-		PTA->PDOR |=  GPIO_PDOR_PDO( 1u << A0 );
-	} else {
-		PTA->PDOR &= ~(GPIO_PDOR_PDO( 1u << A0 ));
-	}
-
-	if (bit1 == 1) {
-		PTA->PDOR |=  GPIO_PDOR_PDO( 1u << A1 );
-	} else {
-		PTA->PDOR &= ~(GPIO_PDOR_PDO( 1u << A1 ));
-	}
-
-	if (bit2 == 1) {
-		PTA->PDOR |=  GPIO_PDOR_PDO( 1u << A2 );
-	} else {
-		PTA->PDOR &= ~(GPIO_PDOR_PDO( 1u << A2 ));
-	}
-
-	if (bit3 == 1) {
-		PTA->PDOR |=  GPIO_PDOR_PDO( 1u << A3 );
-	} else {
-		PTA->PDOR &= ~(GPIO_PDOR_PDO( 1u << A3 ));
-	}
-
+	// Set the final output
+	PTA->PDOR = pdor;
 }
 
-//void set_col_on(unsigned int col_id)
-//{
-//	// Set cols to 0000
-//	PTA->PDOR &= ~( GPIO_PDOR_PDO( COL_MASK ) );
-//
-//	unsigned int bit0 = (col_id >> 0) & 1;
-//	unsigned int bit1 = (col_id >> 1) & 1;
-//	unsigned int bit2 = (col_id >> 2) & 1;
-//	unsigned int bit3 = (col_id >> 3) & 1;
-//
-//	PTA->PDOR |= GPIO_PDOR_PDO( bit0 << A0 )
-//			   | GPIO_PDOR_PDO( bit1 << A1 )
-//			   | GPIO_PDOR_PDO( bit2 << A2 )
-//			   | GPIO_PDOR_PDO( bit3 << A3 );
-//}
 
 void set_row_on(unsigned int row_id)
 {
@@ -300,6 +301,7 @@ void set_row_on(unsigned int row_id)
 	PTA->PDOR &= ~( GPIO_PDOR_PDO( ROW_MASK ) );
 
 	PTA->PDOR |= GPIO_PDOR_PDO( 1 << ROW_ARR[row_id] );
+	//PTA->PDOR &= GPIO_PDOR_PDO( 1 << ROW_ARR[row_id] );
 }
 
 void display_field(void)
@@ -322,6 +324,49 @@ void display_field(void)
 }
 
 
+void display_snake(void)
+{
+	for (int i = 0; i < SNAKE_LEN; ++i) {
+		//delay(tdelay1, tdelay2);
+
+		set_row_on(snake_body[i].x);
+		set_col_on(snake_body[i].y);
+	}
+}
+
+void update_snake_pos(void)
+{
+
+
+	pos_t new_head_pos = { snake_body[0].x, snake_body[0].y };
+	switch (snake_dir) {
+	case UP: // Row 0 is the upper one
+		--new_head_pos.x;
+		break;
+	case LEFT:
+		--new_head_pos.y;
+		break;
+	case DOWN:
+		++new_head_pos.x;
+		break;
+	case RIGHT:
+		++new_head_pos.y;
+		break;
+	default:
+		break;
+	}
+
+	new_head_pos.x %= 8;
+	new_head_pos.y %= 16;
+
+	for (int i = SNAKE_LEN-1; i > 0; --i) {
+		snake_body[i] = snake_body[i-1];
+		snake_body[i].x %= 8;
+		snake_body[i].y %= 16;
+	}
+
+	snake_body[0] = new_head_pos;
+}
 
 
 int main(void)
@@ -335,6 +380,8 @@ int main(void)
 
 	play_led_sequence();
 
+	snake_dir = STOP;
+	unsigned int snake_delay = tdelay1 * tdelay2;
 	for (;;) {
 		counter++;
 
@@ -349,7 +396,23 @@ int main(void)
 //			//PTA->PDOR |= GPIO_PDOR_PDO( 1 << A1 ); // set to 0010
 //			//PTA->PDOR |= GPIO_PDOR_PDO( 1 << A0 ); // set to 0001
 //		}
-		display_field();
+		//display_field();
+
+
+
+		if (counter > snake_delay) {
+			counter = 0;
+
+			buttons_handler();
+
+			if (snake_dir >= UP && snake_dir <= RIGHT) {
+				update_snake_pos();
+			}
+			display_snake();
+		}
+
+
+
 
 		//play_led_sequence();
 		//play_display_row_sequence();
