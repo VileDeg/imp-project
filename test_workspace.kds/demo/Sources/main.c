@@ -2,22 +2,13 @@
 #include "MK60D10.h"
 #include "core_cm4.h"
 
-/* Constants specifying delay loop duration */
-#define tdelay1 32768
-#define tdelay2 	10
+#include "stdlib.h"
+#include "time.h"
 
-/* Auxiliary global variable */
-//int counter = 0;
+typedef unsigned int uint;
 
-/* Variable delay loop */
-void delay(int t1, int t2)
-{
-	int i, j;
-
-	for(i=0; i<t1; i++) {
-		for(j=0; j<t2; j++);
-	}
-}
+#define NUM_ROWS 8
+#define NUM_COLS 16
 
 // PORTA
 #define A0 8
@@ -56,21 +47,37 @@ void delay(int t1, int t2)
 #define ROW_MASK 0x3f000280
 #define EN_MASK  0x10000000
 
-#define LED_MASK 0x0000003C
+#define LED_MASK  0x0000003C
+#define BEEP_MASK 0x00002000
 
-const unsigned int ROW_ARR[8] = { R0, R1, R2, R3, R4, R5, R6, R7 };
+uint ROW_ARR[NUM_ROWS] = { R0, R1, R2, R3, R4, R5, R6, R7 };
+
 
 // 16 * 8 = 128
-unsigned int field[128] = {
-		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
-		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
-		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
-		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
+unsigned int field[NUM_ROWS][NUM_COLS];
 
-		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
-		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
-		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0,
-		0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0
+unsigned int text_lost[NUM_ROWS][NUM_COLS] = {
+		{ 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0 },
+		{ 0,1,0,0, 1,1,1,1,  0,1,1,0, 1,1,1,0 },
+		{ 0,1,0,0, 1,0,0,1,  0,1,0,0, 0,1,0,0 },
+		{ 0,1,0,0, 1,0,0,1,  0,1,1,0, 0,1,0,0 },
+
+		{ 0,1,0,0, 1,0,0,1,  0,0,1,0, 0,1,0,0 },
+		{ 0,1,0,0, 1,0,0,1,  0,0,1,0, 0,1,0,0 },
+		{ 0,1,1,0, 1,1,1,1,  0,1,1,0, 0,1,0,0 },
+		{ 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0 },
+};
+
+unsigned int text_start[NUM_ROWS][NUM_COLS] = {
+		{ 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0 },
+		{ 0,1,1,1, 1,1,1,0,  0,1,1,1, 1,1,1,0 },
+		{ 0,1,1,1, 1,1,1,0,  0,1,1,1, 1,1,1,0 },
+		{ 0,1,1,0, 0,0,0,0,  0,1,1,0, 0,1,1,0 },
+
+		{ 0,1,1,0, 0,1,1,0,  0,1,1,0, 0,1,1,0 },
+		{ 0,1,1,1, 1,1,1,0,  0,1,1,1, 1,1,1,0 },
+		{ 0,1,1,1, 1,1,1,0,  0,1,1,1, 1,1,1,0 },
+		{ 0,0,0,0, 0,0,0,0,  0,0,0,0, 0,0,0,0 },
 };
 
 
@@ -83,21 +90,34 @@ typedef struct {
 	unsigned int y;
 } pos_t;
 
-#define SNAKE_LEN 6
-#define SNAKE_DISPLAY_LOOP_DELAY 1024
+
+#define GAME_DISPLAY_DELAY 1024
+
+#define SNAKE_LEN_INIT 4
+#define SNAKE_LEN_MAX 127
 #define SNAKE_SPEED 8
 
-int snake_dir = STOP;
+// Number of PIT ticks required to spawn a new food
+#define FOOD_TICKS 20
 
-pos_t snake_body[SNAKE_LEN] = {
-		{ 3, 9  }, // Head
-		{ 3, 10 },
-		{ 3, 11 },
-		{ 3, 12 },
-		{ 3, 13 },
-		{ 3, 14 },
-		{ 3, 15 } // Tail
-};
+
+int snake_dir = STOP;
+uint snake_len = SNAKE_LEN_INIT;
+pos_t snake_body[SNAKE_LEN_MAX];
+
+/* Variable delay loop */
+void delay(uint t)
+{
+	for(uint i = 0; i < t; ++i);
+}
+
+void interrupt_button_handler(void);
+
+
+void update_snake(void);
+void spawn_food(void);
+
+void update_game(void);
 
 
 
@@ -154,20 +174,14 @@ void PORTE_IRQHandler() {
 }
 
 void PIT0_IRQHandler() {
-	// Clear the Interrupt Flag in the PIT module
-	PIT->CHANNEL[0].TFLG = 0x01;
-
 	// Toggle the LED
 	PTB->PTOR = (1 << 5);
 
-	if (snake_dir != STOP) {
-		update_snake_pos();
-	}
+	update_game();
+
+	// Clear the Interrupt Flag in the PIT module
+	PIT->CHANNEL[0].TFLG = 0x01;
 }
-
-
-
-
 
 
 void init_led(void)
@@ -207,13 +221,8 @@ void init_display(void)
 	PORTA->PCR[A2] = ( PORT_PCR_MUX(0x01) ); // A2
 	PORTA->PCR[A3] = ( PORT_PCR_MUX(0x01) ); // A3
 
-	// Set COL mux pins as outputs
+	// Set COL mux pins to output
 	PTA->PDDR = GPIO_PDDR_PDD( COL_MASK | ROW_MASK ); // 0x0000  0000 1101  0100 0000
-	// 0000 -> pin0, 1111 -> pin15
-	//PTA->PDOR |= GPIO_PDOR_PDO( 0xD40 );
-	//PTA->PDOR &= ~( GPIO_PDOR_PDO( col_mask ) );
-	PTA->PDOR |= GPIO_PDOR_PDO( COL_MASK ); // set to 1111
-
 
 	// Set display ROW pins to output
 	// R0 -> 26, R1 -> 24, R2 -> 9, R3 -> 25, R4 -> 28, R5 -> 7, R6 -> 27, R7 -> 29
@@ -225,17 +234,6 @@ void init_display(void)
 	PORTA->PCR[R5] = ( PORT_PCR_MUX(0x01) ); // R5
 	PORTA->PCR[R6] = ( PORT_PCR_MUX(0x01) ); // R6
 	PORTA->PCR[R7] = ( PORT_PCR_MUX(0x01) ); // R7
-
-	// Set ROW pins as outputs
-	//PTA->PDDR  = GPIO_PDDR_PDD( row_mask ); // 0x0000  0000 1101  0100 0000
-
-	// Set ROW 0 to ON
-	PTA->PDOR |= GPIO_PDOR_PDO( 1 << R0 );
-	PTA->PDOR |= GPIO_PDOR_PDO( 1 << R1 );
-	PTA->PDOR |= GPIO_PDOR_PDO( 1 << R2 );
-
-	// Turn off (1 = ON, 0 = OFF)
-	//PTA->PDOR &= ~( GPIO_PDOR_PDO( row_mask ) );
 }
 
 void init_pit(void)
@@ -280,132 +278,203 @@ void init_pit(void)
 	//NVIC->ISER[2] |= (1 << 5);
 }
 
-
-
-void play_led_sequence(void)
-{
-	//Turn all the LEDs sequentialy ON!
-    PTB->PDOR &= ~(1 << 5);
-    delay(tdelay1, tdelay2);
-    PTB->PDOR &= ~(1 << 4);
-    delay(tdelay1, tdelay2);
-    PTB->PDOR &= ~(1 << 3);
-    delay(tdelay1, tdelay2);
-    PTB->PDOR &= ~(1 << 2);
-    delay(tdelay1, tdelay2);
-
-    //Turn all the LEDs sequentialy OFF!
-   	PTB->PDOR |= (1 << 2);
-   	delay(tdelay1, tdelay2);
-   	PTB->PDOR |= (1 << 3);
-   	delay(tdelay1, tdelay2);
-   	PTB->PDOR |= (1 << 4);
-   	delay(tdelay1, tdelay2);
-   	PTB->PDOR |= (1 << 5);
-   	delay(tdelay1, tdelay2);
-}
-
-
-
-
 void interrupt_button_handler(void)
 {
+	// Forbid changing direction to the opposite
+
 	if ( (PORTE->ISFR & (1 << SW2)) != 0 ) {
 		PTB->PCOR = 1 << D9;
-		snake_dir = UP;
+		snake_dir = snake_dir != DOWN ? UP : snake_dir;
 	} else {
 		PTB->PSOR = 1 << D9;
 	}
 
 	if ( (PORTE->ISFR & (1 << SW3)) != 0 ) {
 		PTB->PCOR = 1 << D10;
-		snake_dir = RIGHT;
+		snake_dir = snake_dir != LEFT ? RIGHT : snake_dir;
 	} else {
 		PTB->PSOR = 1 << D10;
 	}
 
+
 	if ( (PORTE->ISFR & (1 << SW4)) != 0 ) {
 		PTB->PCOR = 1 << D11;
-		snake_dir = DOWN;
+		snake_dir = snake_dir != UP ? DOWN : snake_dir;
 	} else {
 		PTB->PSOR = 1 << D11;
 	}
 
+
 	if ( (PORTE->ISFR & (1 << SW5)) != 0 ) {
 		PTB->PCOR = 1 << D12;
-		snake_dir = LEFT;
+		snake_dir = snake_dir != RIGHT ? LEFT : snake_dir;
 	} else {
 		PTB->PSOR = 1 << D12;
 	}
 }
 
 
-void set_col_on(unsigned int col_id)
-{
-	// Set all cols OFF
-	PTA->PCOR = COL_MASK;
-	// Extract the individual bits from col_id and shift to the cols positions to create a mask
-	PTA->PSOR = ((col_id	 ) & 1u) << A0
-			  | ((col_id >> 1) & 1u) << A1
-			  | ((col_id >> 2) & 1u) << A2
-			  | ((col_id >> 3) & 1u) << A3;
-}
-
-void set_row_on(unsigned int row_id)
+void set_cell_on(uint row, uint col)
 {
 	// Set all rows OFF
 	PTA->PCOR = ROW_MASK;
 	// Set the current row ON
-	PTA->PSOR = 1 << ROW_ARR[row_id];
+	PTA->PSOR = 1 << ROW_ARR[row];
+
+
+	// Set all cols OFF
+	PTA->PCOR = COL_MASK;
+	// Extract the individual bits from col_id and shift to the cols positions to create a mask
+	PTA->PSOR = ((col	 ) & 1u) << A0
+			  | ((col >> 1) & 1u) << A1
+			  | ((col >> 2) & 1u) << A2
+			  | ((col >> 3) & 1u) << A3;
 }
 
 
-void display_snake(void)
+void display_field(uint field[NUM_ROWS][NUM_COLS], uint dly)
 {
-	for (int i = SNAKE_LEN-1; i >=0; --i) {
-		delay(SNAKE_DISPLAY_LOOP_DELAY, 1);
-
-		set_row_on(snake_body[i].x);
-		set_col_on(snake_body[i].y);
+	for (uint r = 0; r < NUM_ROWS; ++r) {
+		for (uint c = 0; c < NUM_COLS; ++c) {
+			if (field[r][c] < 1) {
+				continue;
+			}
+			set_cell_on(r, c);
+			delay(dly);
+		}
 	}
 }
 
-void update_snake_pos(void)
+void update_game(void)
 {
-	pos_t new_head_pos = { snake_body[0].x, snake_body[0].y };
-	switch (snake_dir) {
-	case UP: // Row 0 is the upper one
-		--new_head_pos.x;
-		break;
-	case LEFT:
-		--new_head_pos.y;
-		break;
-	case DOWN:
-		++new_head_pos.x;
-		break;
-	case RIGHT:
-		++new_head_pos.y;
-		break;
-	default:
-		break;
+	if (snake_dir == STOP) {
+		return;
 	}
 
-	new_head_pos.x %= 8;
-	new_head_pos.y %= 16;
+	update_snake();
 
-	for (int i = SNAKE_LEN-1; i > 0; --i) {
+	static uint food_tick_counter = 0;
+	if (food_tick_counter == FOOD_TICKS) {
+		spawn_food();
+		food_tick_counter = 0;
+	}
+
+	++food_tick_counter;
+}
+
+void restart_game(int lost)
+{
+	uint dly = 150;
+	uint interval = 400;
+
+	if (lost == 0) {
+		for (uint i = 0; i < interval; ++i) {
+			display_field(text_start, dly);
+		}
+	} else {
+		for (uint i = 0; i < interval; ++i) {
+			display_field(text_lost, dly);
+		}
+	}
+
+	// Clear the field
+	for (uint r = 0; r < NUM_ROWS; ++r) {
+		for (uint c = 0; c < NUM_COLS; ++c) {
+			field[r][c] = 0;
+		}
+	}
+
+	snake_dir = STOP;
+	snake_len = SNAKE_LEN_INIT;
+
+	int ini_x = 3;
+	int ini_y = 9;
+
+	// Set snake to its initial position
+	for (uint i = 0; i < snake_len; ++i) {
+		snake_body[i].x = ini_x;
+		snake_body[i].y = (ini_y + i) % NUM_COLS;
+		// Display the snake
+		field[snake_body[i].x][snake_body[i].y] = 1;
+	}
+}
+
+int snake_collision(pos_t head_pos)
+{
+	// If snake collides with itself
+	if (field[head_pos.x][head_pos.y] == 1) {
+		restart_game(1); // Player LOST
+		return 1;
+	}
+
+	// If snake collides with food
+	if (field[head_pos.x][head_pos.y] == 2) {
+		if (snake_len < SNAKE_LEN_MAX) {
+			pos_t tail 	   = snake_body[snake_len-1];
+			pos_t pre_tail = snake_body[snake_len-2];
+
+			// Extend the tail in the direction it is currently facing
+			snake_body[snake_len].x = tail.x + (tail.x - pre_tail.x);
+			snake_body[snake_len].y = tail.y + (tail.y - pre_tail.y);
+
+			++snake_len;
+		}
+
+		// Clear the food
+		field[head_pos.x][head_pos.y] = 0;
+	}
+	return 0;
+}
+
+void update_snake(void)
+{
+	pos_t new_head = { snake_body[0].x, snake_body[0].y };
+
+	new_head.x += (snake_dir == UP  ) ? -1 : (snake_dir == DOWN );
+	new_head.y += (snake_dir == LEFT) ? -1 : (snake_dir == RIGHT);
+
+	new_head.x %= 8;
+	new_head.y %= 16;
+
+	// Check collision
+	if (snake_collision(new_head) != 0) {
+		return;
+	}
+
+	// Clear the tail cell
+	field[snake_body[snake_len-1].x][snake_body[snake_len-1].y] = 0;
+
+	// Move the snake by one cell
+	for (int i = snake_len-1; i > 0; --i) {
 		snake_body[i] = snake_body[i-1];
 		snake_body[i].x %= 8;
 		snake_body[i].y %= 16;
 	}
 
-	snake_body[0] = new_head_pos;
+	// Set the new head
+	snake_body[0] = new_head;
+	field[snake_body[0].x][snake_body[0].y] = 1;
 }
 
+
+void spawn_food(void)
+{
+	int row, col;
+
+	do {
+		row = rand() % NUM_ROWS;
+		col = rand() % NUM_COLS;
+	} while (field[row][col] != 0); // Regenerate if the cell is already occupied
+
+	field[row][col] = 2; // 2 means food
+}
 
 
 int main(void)
 {
+	// Set the seed
+	srand(time(NULL));
+
 	/* Turn on all port clocks */
 	SIM->SCGC5 = SIM_SCGC5_PORTA_MASK | SIM_SCGC5_PORTB_MASK | SIM_SCGC5_PORTE_MASK;
 
@@ -414,12 +483,10 @@ int main(void)
 	init_display();
 	init_pit();
 
-	play_led_sequence();
+	restart_game(0);
 
-	snake_dir = STOP;
-	//unsigned int snake_delay = tdelay1 * tdelay2;
 	for (;;) {
-		display_snake();
+		display_field(field, GAME_DISPLAY_DELAY);
     }
     /* Never leave main */
     return 0;
