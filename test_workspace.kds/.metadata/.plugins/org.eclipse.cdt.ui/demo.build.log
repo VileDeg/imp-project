@@ -1,8 +1,33 @@
-14:02:54 **** Incremental Build of configuration Debug for project demo ****
+16:32:24 **** Incremental Build of configuration Debug for project demo ****
 make all 
 'Building file: ../Sources/main.c'
 'Invoking: Cross ARM C Compiler'
 arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -I"../Sources" -I"../Includes" -std=c99 -MMD -MP -MF"Sources/main.d" -MT"Sources/main.o" -c -o "Sources/main.o" "../Sources/main.c"
+../Sources/main.c:99:3: warning: excess elements in array initializer [enabled by default]
+   { 3, 15 } // Tail
+   ^
+../Sources/main.c:99:3: warning: (near initialization for 'snake_body') [enabled by default]
+../Sources/main.c: In function 'PORTE_IRQHandler':
+../Sources/main.c:151:2: warning: implicit declaration of function 'interrupt_button_handler' [-Wimplicit-function-declaration]
+  interrupt_button_handler();
+  ^
+../Sources/main.c: In function 'PIT0_IRQHandler':
+../Sources/main.c:164:3: warning: implicit declaration of function 'update_snake_pos' [-Wimplicit-function-declaration]
+   update_snake_pos();
+   ^
+../Sources/main.c: At top level:
+../Sources/main.c:311:6: warning: conflicting types for 'interrupt_button_handler' [enabled by default]
+ void interrupt_button_handler(void)
+      ^
+../Sources/main.c:151:2: note: previous implicit declaration of 'interrupt_button_handler' was here
+  interrupt_button_handler();
+  ^
+../Sources/main.c:373:6: warning: conflicting types for 'update_snake_pos' [enabled by default]
+ void update_snake_pos(void)
+      ^
+../Sources/main.c:164:3: note: previous implicit declaration of 'update_snake_pos' was here
+   update_snake_pos();
+   ^
 'Finished building: ../Sources/main.c'
 ' '
 'Building target: demo.elf'
@@ -11,5 +36,5 @@ arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -O0 -fmessage-length=0 -fsigned-char -
 'Finished building target: demo.elf'
 ' '
 
-14:02:55 Build Finished (took 1s.210ms)
+16:32:24 Build Finished (took 759ms)
 
