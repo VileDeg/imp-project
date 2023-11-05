@@ -80,4 +80,7 @@ In my implementation the game was extended with the following functionality:
 3. Game is lost when snake collides with itself.
 4. Text displayed on program start and game loss.
 
+## Auto-evaluation
+**14 b.**
+
 ![image info](img/fitkit3.jpg)
