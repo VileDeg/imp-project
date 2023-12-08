@@ -54,3 +54,5 @@ dkms.conf
 test_workspace.kds/
 
 .vscode/
+
+./*.zip

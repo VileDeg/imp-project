@@ -70,7 +70,7 @@ This function is called from `PORTE_IRQHandler` which is function that gets call
 ## Testing
 The program was manually tested by playing the game using the buttons on FitKit3 platform.
 
-## Extensions
+## Project extensions
 The project task only required to implement the snake movement without any other game logic.
 
 In my implementation the game was extended with the following functionality:
@@ -80,7 +80,11 @@ In my implementation the game was extended with the following functionality:
 3. Game is lost when snake collides with itself.
 4. Text displayed on program start and game loss.
 
+## Demonstration video
+Video link with demonstration of the project implementation can be found on YouTube by the following link: https://youtu.be/s9qUFnR8hgo
+
 ## Auto-evaluation
 **14 b.**
 
 ![image info](img/fitkit3.jpg)
+
